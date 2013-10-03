@@ -1,3 +1,5 @@
+$color-blue: #3578AF;
+$color-default: #333;
 
 ul.posts li {
     font-size: 14px;
@@ -24,7 +26,10 @@ ul.menu {
 }
 
 #home h2, #euler h2 {
-    color: #333;
+    i {
+        color: $color-blue;
+    }
+    color: $color-default;
 }
 
 .label, .badge {
@@ -32,3 +37,26 @@ ul.menu {
     font-weight: normal;
 }
 
+#my-location {
+    border: 1px solid #D8D8D8;
+    height: 200px;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.skillset {
+    p {
+        color: #888;
+        margin: 2px 0;
+        font-size: 14px;
+        strong {
+            color: $color-default;
+            font-weight: normal;
+        }
+        span {
+            i.icon-star {
+                color: #3578AF;   
+            }
+        }
+    }
+}

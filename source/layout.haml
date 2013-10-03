@@ -29,23 +29,21 @@
     .container
       .four.columns.sidebar
         %nav
-          %h1 /dev/blog
+          %h1>
           %span#logo-container
             %a{href: "/"}
               %span.logo-bracket> {
               m
               %span.logo-bracket> }
           %h2
-            I'm
-            %a{href: "/"} Łukasz Malik
+            Łukasz Malik
           %hr/
           %ul
-            %p I'm a programmer, 
-            %hr/
-            %ul.tags
-              - blog.tags.each do |tag, articles|
-                %li
-                  = link_to tag, tag_path(tag)
+            %p Freelancer, webdeveloper, programmer, Linux user.
+            %p
+              \... for 
+              %a{:href => "mailto:lukasz@malik.pro"} hire
+              \.
             %hr/
             %div
               #social
@@ -57,6 +55,12 @@
                     %i.icon-twitter-sign
                   %a#rss{href: "http://feeds.feedburner.com/aminbandali", title: "RSS feed"}
                     %i.icon-rss-sign
+            %hr/
+            %ul.tags
+              - blog.tags.each do |tag, articles|
+                %li
+                  = link_to tag, tag_path(tag)
+            %hr/
       .eleven.columns.content
         #home
           = yield
@@ -70,6 +74,6 @@
             %a{:href => "http://www.ruby-lang.org"} Ruby 
 
 
-  / %script{src: "http://maps.googleapis.com/maps/api/js?sensor=false", type: "text/javascript"}
-  / %script{src: "http://code.jquery.com/jquery-1.10.1.min.js", type: "text/javascript"}
-  / %script{src: "/javascripts/all.js", type: "text/javascript"}
+  %script{src: "http://maps.googleapis.com/maps/api/js?sensor=false", type: "text/javascript"}
+  %script{src: "http://code.jquery.com/jquery-1.10.1.min.js", type: "text/javascript"}
+  %script{src: "/javascripts/all.js", type: "text/javascript"}

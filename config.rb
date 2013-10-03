@@ -23,7 +23,7 @@ activate :blog do |blog|
 
   # blog.prefix = "blog"
   blog.taglink = ":tag.html"
-  # blog.layout = "layout"
+  blog.layout = "layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.paginate = true
