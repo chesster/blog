@@ -1,0 +1,34 @@
+
+ul.posts li {
+    font-size: 14px;
+}
+.project-date {
+    margin-bottom: 0;
+}
+ul.menu {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    li {
+        color: #ccc;
+        font-style: italic;
+        font-size: 13px;
+        a {
+            font-weight: normal;
+            font-style: normal;
+        }
+    }
+}
+.footer {
+    padding: 10px 0 20px;
+}
+
+#home h2, #euler h2 {
+    color: #333;
+}
+
+.label, .badge {
+    font-size: 11px;
+    font-weight: normal;
+}
+
