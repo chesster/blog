@@ -1,18 +1,32 @@
 - Tag Cloud
-- i18n
-- Wyszkiwarka Google
-- Szablon Postu
+- Related Posts
 - Komentarze
-- Statystyki Google
-- meta from Yaml
+
+- 404.html template
+- Article.html template
+- Calendar.html template
+- Tag.html template
+
 - Projects from Yaml
 - Skills form Yaml
-- Opinie Klientów
-- Lepszy opis
-- Kontakt (form?)
-- Notka Inicjująca (Dlaczego statycznie?)
+- meta from Yaml
 
-- Related Posts?!
+- Fav Ikonka
+- Lepszy opis
+- Notka Inicjująca (Dlaczego statycznie?)
+- SiteMapa
+- Statystyki Google
+- Syntax Highlight (check)
+- Wyszkiwarka Google
+- i18n
+- ĄĘ w tagach
+
+
+- Kontakt (form?)
+- Opinie Klientów
+
+- Post Build Hooks
+- Reklamy
+- Pseudowyszukiwarka na JSONIE
 
 - Konto na eLance
-

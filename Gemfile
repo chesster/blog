@@ -11,6 +11,8 @@ gem "middleman-minify-html"
 
 gem 'execjs'
 gem 'therubyracer'
+gem "flickraw"
+gem "dotenv"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"

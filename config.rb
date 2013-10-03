@@ -1,3 +1,5 @@
+Dotenv.load
+I18n.default_locale = :en
 Time.zone = "UTC"
 
 activate :i18n
@@ -13,20 +15,23 @@ activate :syntax, :line_numbers => true
 activate :blog do |blog|
   blog.sources = "articles/:year-:month-:day-:title.html"
   blog.default_extension = ".markdown"
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
-  blog.permalink = ":year-:month-:day-:title.html"
 
+  blog.permalink = ":year-:month-:day-:title.html"
   blog.year_link = "archive/:year.html"
   blog.month_link = "archive/:year/:month.html"
   blog.day_link = "archive/:year/:month/:day.html"
 
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+
   # blog.prefix = "blog"
   blog.taglink = ":tag.html"
   blog.layout = "layout"
+  
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
-  # blog.paginate = true
+
+  blog.paginate = false
   # blog.per_page = 10
   # blog.page_link = "page/:num"
 end
