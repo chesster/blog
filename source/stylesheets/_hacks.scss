@@ -48,6 +48,29 @@ ul.menu {
     margin-top: 50px
 }
 
+.google_search {
+    .cse .gsc-control-cse, .gsc-control-cse { 
+        padding: 0 !important;
+    }
+    .cse input.gsc-search-button, input.gsc-search-button {
+        border-radius: 5px;
+        padding: 6px 9px;
+    }
+    #gsc-i-id1 {
+        background: none repeat scroll 0 0 transparent !important;
+        border-color: #FFFFFF;
+        border-radius: 0 0 0 0;
+        box-shadow: none;
+        font-size: 14px;
+        padding-bottom: 6px !important;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+    }
+    height: 27px;
+    margin-bottom: 15px;
+}
+
 .skillset {
     p {
         color: #888;
