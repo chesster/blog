@@ -6,6 +6,7 @@ keywords: Ruby, CSV, InDesign, Text
 tags: example, tools
 title: Example Article
 published: false
+lang: en
 ---
 
 This is an example article. You probably want to delete it and write your own articles!

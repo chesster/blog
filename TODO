@@ -1,21 +1,22 @@
 - Deploy 
 
-- Projects from Yaml
-- Skills form Yaml
-
 - i18n
+  - Tagi
+  - Wpisy
+  - Szablony
+  - Discus
+  - HTML Lang
 
-- Lepszy opis
+- Znikające tagi przy responsiwie
+
+- Lepszy opis boczny + jak zatrudnic
 - Notka Inicjująca (Dlaczego statycznie?)
 
-- Kontakt (form?)
 -----------------------------------------------
 - Opinie Klientów
 - Post Build Hooks
-- Reklamy
 - Pseudowyszukiwarka na JSONIE
 - Konto na eLance
-
 -----------------------------------------------
 ## TEST THIS:
 - Syntax Highlight 

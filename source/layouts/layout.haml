@@ -30,7 +30,7 @@
       \- Łukasz Malik (webdeveloper)
 
     %link{href: "feed.xml", rel: "alternate", title: "#{data.page.title} ATOM Feed", type: "application/atom+xml"}/
-    %link{href: "/", rel: "canonical"}/
+    / %link{href: "/", rel: "canonical"}/
     
     =stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'
     =stylesheet_link_tag '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
@@ -62,7 +62,7 @@
             %p Freelancer, webdeveloper, programmer, Linux user.
             %p
               \... for 
-              %a{:href => "mailto:lukasz@malik.pro"} hire
+              %a{:href => "mailto:&#108;&#117;&#107;&#097;&#115;&#122;&#064;&#109;&#097;&#108;&#105;&#107;&#046;&#112;&#114;&#111;"} hire
               \.
             %hr/
             / %h5.menu Search
@@ -73,17 +73,16 @@
             %hr/
             / %h5.menu Avertisement
             / %hr/
-            %div
-              / %h5.menu Follow me
-              #social
-                Follow me:
-                #stalker
-                  %a{href: "https://bitbucket.org/chesster/", title: "chesster on BitBucket"}
-                    %i.icon-bitbucket-sign
-                  %a{href: "https://twitter.com/lukaszmalikpro", title: "lukaszmalikpro on Twitter"}
-                    %i.icon-twitter-sign
-                  %a#rss{href: "http://feeds.feedburner.com/malikpro", title: "RSS feed"}
-                    %i.icon-rss-sign
+            / %h5.menu Follow me
+            #social
+              Follow me:
+              #stalker
+                %a{href: "https://bitbucket.org/chesster/", title: "chesster on BitBucket"}
+                  %i.icon-bitbucket-sign
+                %a{href: "https://twitter.com/lukaszmalikpro", title: "lukaszmalikpro on Twitter"}
+                  %i.icon-twitter-sign
+                %a#rss{href: "http://feeds.feedburner.com/malikpro", title: "RSS feed"}
+                  %i.icon-rss-sign
             %hr/
       .eleven.columns.content
         #home

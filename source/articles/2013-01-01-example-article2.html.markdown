@@ -6,5 +6,6 @@ keywords: Ruby, CSV, InDesign, Text
 tags: example
 title: Inny Art
 published: false
+lang: pl
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, deleniti ipsum sed incidunt qui nam eum non nesciunt commodi placeat eveniet blanditiis sint necessitatibus dolore maiores ad iure labore asperiores.

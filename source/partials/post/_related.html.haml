@@ -1,9 +1,3 @@
 - if related(current_page).present?
     %h3 Related Posts
-    %ul.posts
-        - related(current_page).each do |article|
-            %li
-                %span 
-                    =article.date.strftime('%e %B %Y')
-                »
-                \#{link_to(article.title, article.url)}
+    = partial('partials/articles', :locals => {:all_articles => related(current_page)})
