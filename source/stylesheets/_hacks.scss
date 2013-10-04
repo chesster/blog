@@ -35,6 +35,17 @@ ul.menu {
 .label, .badge {
     font-size: 11px;
     font-weight: normal;
+    a {
+        :hover, :active, :visited, :link {
+            color: #fff;
+        }
+        color: #fff;
+    }
+}
+ul#blog-posts {
+    .label, .badge {
+        margin-left: 5px;
+    }
 }
 
 #my-location {
@@ -42,6 +53,38 @@ ul.menu {
     height: 200px;
     margin: 5px 0;
     width: 100%;
+}
+
+h5.menu {
+    color: #bbb;
+    font-weight: 200;
+    text-align: right;
+    margin: -10px 0 5px 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+p.error404 {
+    font-size: 100px;
+    line-height: 100px;
+    margin: 50px 0;
+
+    span {
+        line-height: 10px;
+        display: block;
+        position: relative;
+        font-size: 14px;
+        color: #ccc;
+        margin-top: -10px;
+        margin-left: 120px;
+
+        -moz-text-shadow: 2px #fff;
+        -webkit-text-shadow: 2px #fff;
+        text-shadow: 2px #fff;
+    }
+}
+p.error404-desc {
+    margin-bottom: 50px;
 }
 
 #disqus_thread {
@@ -68,7 +111,7 @@ ul.menu {
         padding-top: 0;
     }
     height: 27px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .skillset {

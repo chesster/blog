@@ -6,10 +6,6 @@ module BlogHelpers
     current_page.data.title || yield_content(:title)
   end
 
-  def date(time)
-    Russian::strftime(time, '%d %b %Y')
-  end
-
   def tags(page)
     page.tags.map { |tag| link_to(tag, tag_path(tag)) }.join(', ')
   end

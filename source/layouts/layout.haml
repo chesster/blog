@@ -9,22 +9,42 @@
     %meta{charset: "utf-8"}/
     %meta{content: "tmcKOx1zMYBWB2eWotWenUeXCZ2xuaTo5CHRjC6rjdw", name: "google-site-verification"}/
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
-    %title Łukasz Malik - blog posts, writeups, projects
-    %meta{content: "Łukasz Malik", name: "author"}/
-    %meta{content: "blog posts, writeups and projects by a Łukasz Malik, the Juvenile Programmer", name: "description"}/
+
+    -if current_page.data.description
+      %meta{content: current_page.data.description, name: "description"}/
+    -else
+      %meta{content: "", name: "description"}/
+
+    -if current_page.data.keywords
+      %meta{content: current_page.data.keywords, name: "keywords"}/
+    -else
+      %meta{content: "", name: "keywords"}/
+
+    -if current_page.data.author
+      %meta{content: current_page.data.author, name: "author"}/
+    -else
+      %meta{content: "", name: "author"}/
+
+    %title
+      = data.page.title
+      \- Łukasz Malik (webdeveloper)
+
+    %link{href: "feed.xml", rel: "alternate", title: "#{data.page.title} ATOM Feed", type: "application/atom+xml"}/
     %link{href: "/", rel: "canonical"}/
     
-    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800", rel: "stylesheet", type: "text/css"}/
-    %link{href: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css", rel: "stylesheet"}/
-    %link{href: "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", rel: "stylesheet"}/
-
-    %link{href: "/images/favicon.ico", rel: "icon", type: "image/png"}/
-    %link{href: "/atom.xml", rel: "alternate", title: "Łukasz Malik", type: "application/rss+xml"}/
-    %link{href: "/stylesheets/all.css", rel: "stylesheet"}/
-    / %link{href: "/stylesheets/syntax.css", rel: "stylesheet"}/
+    =stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'
+    =stylesheet_link_tag '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
+    =stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+    =stylesheet_link_tag 'all.css'
+    / =stylesheet_link_tag 'syntax.css'
 
     /[if IE 7]
-      <link rel="stylesheet" href="/css/font-awesome-ie7.min.css">
+      =stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css'
+
+    %link{href: "/atom.xml", rel: "alternate", title: "Łukasz Malik", type: "application/rss+xml"}/
+    
+    =favicon_tag 'favicon.ico'
+
   %body
     .container
       .four.columns.sidebar
@@ -45,8 +65,16 @@
               %a{:href => "mailto:lukasz@malik.pro"} hire
               \.
             %hr/
+            / %h5.menu Search
             = partial 'partials/google_search'
+            -if blog.tags
+              %h5.menu Article categories
+              =tag_cloud
+            %hr/
+            / %h5.menu Avertisement
+            / %hr/
             %div
+              / %h5.menu Follow me
               #social
                 Follow me:
                 #stalker
@@ -56,11 +84,6 @@
                     %i.icon-twitter-sign
                   %a#rss{href: "http://feeds.feedburner.com/malikpro", title: "RSS feed"}
                     %i.icon-rss-sign
-            %hr/
-            %ul.tags
-              - blog.tags.each do |tag, articles|
-                %li
-                  = link_to tag, tag_path(tag)
             %hr/
       .eleven.columns.content
         #home

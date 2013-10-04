@@ -5,14 +5,19 @@ layout: article
 - wrap_layout :layout do
     
     %p.meta
-        =current_page.date.strftime('%e %B %Y')
+        =current_page.date.strftime('%B %e, %Y')
         %a{href: "/"}
             %i.home.icon-home
 
     %h1.title 
         =current_page.title
+
     #post
         %article= yield
+    %p
+        %strong 
+            Categories:
+        =tags(current_page)
 
     .newsletter
         #mc_embed_signup

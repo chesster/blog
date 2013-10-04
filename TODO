@@ -1,23 +1,14 @@
-- Tag Cloud
-
-- Calendar.html template
-- Tag.html template
-
-- 404.html template
+- Deploy 
 
 - Projects from Yaml
 - Skills form Yaml
-- meta from Yaml
 
-- SiteMapa
 - i18n
-- ĄĘ w tagach
 
 - Lepszy opis
 - Notka Inicjująca (Dlaczego statycznie?)
 
 - Kontakt (form?)
-
 -----------------------------------------------
 - Opinie Klientów
 - Post Build Hooks
@@ -27,6 +18,5 @@
 
 -----------------------------------------------
 ## TEST THIS:
-- Related Posts
 - Syntax Highlight 
 

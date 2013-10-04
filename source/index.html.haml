@@ -1,4 +1,8 @@
 ---
+description: "desc"
+keywords "keyword": 
+author "Łukasz Malik": 
+title: Portfolio
 pageable: true
 per_page: 10
 ---
@@ -6,202 +10,14 @@ per_page: 10
   %h2
     %i.icon-bookmark
     Blog Posts
-  - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-    %h2.project-date 
-      =year 
-      »
-    %ul#blog-posts.posts
-      - articles.each_with_index do |article, i|
-        %li
-          %span.grey
-            =article.date.strftime('%e %B %Y')
-            »
-          =link_to article.title, article
-          - article.tags.each do |tag|
-            %div.pull-right
-              %span.label.label-info
-                =tag
+  = partial('partials/articles', :locals => {:all_articles => blog.articles})
   %hr/
 
+= partial 'partials/commercial_projects'
 
-%h2
-  %i.icon-money
-  Commercial Projects
-%h2.project-date 2013 »
-%ul.posts
-  %li
-    %i.icon-time
-    GetOnDek.com:
-    Sports Card Creator
-    %div.pull-right
-      %span.label.label-success django
-  %li
-    %i.icon-time
-    CLIP3:
-    Youth Camp Managment service
-    %div.pull-right
-      %span.label.label-info bootstrap
-      %span.label.label-success django
-  %li
-    %i.icon-external-link
-    %a{href: "http://apprupt.com"}  
-      Apprupt.com:
-    Mobile adds managment service, client backend, custom framework
-    %div.pull-right
-      %span.label.label-info php5
+= partial 'partials/private_projects'
 
-%h2.project-date 2007 - 2010 »
-%ul.posts
-  %li
-    %i.icon-external-link
-    %a{href: "http://sciaga.pl"}
-      Sciaga.pl:
-    Polish education service, custom framework
-    %div.pull-right
-      %span.label.label-info php5
-  %li
-    %i.icon-external-link
-    %a{href: "http://zaliczaj.pl"}
-      Zaliczaj.pl:
-    Polish education service, custom framework
-    %div.pull-right
-      %span.label.label-info php5
-  %li
-    %i.icon-external-link
-    %a{href: "http://benc.pl"}
-      Benc.pl:
-    Polish parenting service, custom framework
-    %div.pull-right
-      %span.label.label-info php5
-  %li
-    %i.icon-external-link
-    %a{href: "http://mymonki.pl"}
-      Mymonki.pl:
-    Childrens accesories store, magento template
-    %div.pull-right
-      %span.label.label-info php5
-      %span.label.label-warning magento
-%hr/
-
-
-%h2
-  %i.icon-beaker
-  Private Projects
-%h2.project-date 2013 »
-%ul.posts
-  %li
-    %i.icon-github-alt
-    %a{href: "/"}
-      This Blog:
-    Pre-cooked personal website powered by
-    %a{:href => "http://directory.middlemanapp.com"} Middleman
-    %div.pull-right
-      %span.label.label-important ruby
-      %span.label.label-warning middleman
-  / %li
-  /   %i.icon-picture
-  /   %a{href: "/"}
-  /     Synonimizer:
-  /   [enter description here]
-  /   %div.pull-right
-  /     %span.label.label-info bootstrap
-  /     %span.label.label-success django
-  %li
-    %i.icon-time
-    TVQuery:
-    Customisable TV Guide
-    %div.pull-right
-      %span.label.label-info bootstrap
-      %span.label.label-important rails
-%hr/
-
-
-%h2
-  %i.icon-wrench
-  Skillset
-%div.row-fluid.skillset
-  %div.span6
-    %p 
-      %strong Programming &amp; markup languages:
-    %p
-      PHP
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-    %p
-      Python &amp; Django
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star-empty
-    %p
-      Ruby &amp; Rails
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star-empty
-        %i.icon-star-empty
-    %p
-      Javascript &amp; JQuery
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-    %p
-      Java &amp; Android
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star-empty
-        %i.icon-star-empty
-        %i.icon-star-empty
-  %div.span6
-    %p 
-      %strong Software:
-    %p
-      Linux
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-    %p
-      Git
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star-empty
-    %p
-      Photoshop
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star-empty
-    %p 
-      %strong Foreign languages:
-    %p
-      English
-      %span.pull-right
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star
-        %i.icon-star-empty
-%hr/
-
+= partial 'partials/skillset'
 
 %h2
   %i.icon-map-marker

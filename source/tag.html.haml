@@ -1,0 +1,12 @@
+---
+title: Browse by category
+pageable: false
+---
+
+%h2
+  %i.icon-bookmark
+  Blog posts in  "#{tagname}" category
+
+= partial('partials/articles', :locals => {:all_articles => page_articles})
+
+= partial 'partials/pages'

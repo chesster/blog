@@ -1,3 +1,5 @@
+require "lib/uuid"
+
 Dotenv.load
 I18n.default_locale = :en
 Time.zone = "UTC"
@@ -16,6 +18,9 @@ set :helpers_dir, "helpers"
 set :layout, :_auto_layout
 set :layouts_dir, "layouts"
 set :locales_dir, "locales"
+
+# Create an RFC4122 UUID http://www.ietf.org/rfc/rfc4122.txt
+set :uuid, UUID.create_sha1('malik.pro', UUID::NameSpace_URL)
 
  # Blog settings
 activate :blog do |blog|
@@ -36,6 +41,7 @@ activate :blog do |blog|
   blog.paginate = false
 end
 
+page "/sitemap.xml", :layout => "sitemap.xml"
 page "/feed.xml", :layout => false
 
 # Build-specific configuration
