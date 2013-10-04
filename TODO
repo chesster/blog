@@ -1,32 +1,36 @@
 - Tag Cloud
-- Related Posts
-- Komentarze
 
-- 404.html template
-- Article.html template
 - Calendar.html template
 - Tag.html template
+
+- 404.html template
 
 - Projects from Yaml
 - Skills form Yaml
 - meta from Yaml
 
-- Fav Ikonka
-- Lepszy opis
-- Notka Inicjująca (Dlaczego statycznie?)
-- SiteMapa
+- FeedBurnerAccount for "subscription" 
 - Statystyki Google
-- Syntax Highlight (check)
 - Wyszkiwarka Google
+
+- SiteMapa
 - i18n
 - ĄĘ w tagach
 
+- Lepszy opis
+- Notka Inicjująca (Dlaczego statycznie?)
 
 - Kontakt (form?)
-- Opinie Klientów
 
+-----------------------------------------------
+- Opinie Klientów
 - Post Build Hooks
 - Reklamy
 - Pseudowyszukiwarka na JSONIE
-
 - Konto na eLance
+
+-----------------------------------------------
+## TEST THIS:
+- Related Posts
+- Syntax Highlight 
+
