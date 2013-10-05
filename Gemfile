@@ -2,12 +2,18 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
-gem "middleman", "~> 3.1.5"
-gem "middleman-blog", "~> 3.3.0"
+# gem "middleman", "~> 3.1.5"
+# gem "middleman-syntax" 
+# gem "middleman-blog"
+
+gem "middleman-blog", git: 'https://github.com/epochwolf/middleman-blog', branch: "master"
+gem "middleman-syntax", git: 'https://github.com/middleman/middleman-syntax', branch: "master"
+gem 'middleman-thumbnailer', :git => 'git://github.com/nhemsley/middleman-thumbnailer.git', branch: "master"
+
 gem "middleman-livereload", "~> 3.1.0"
 gem "middleman-deploy"
-gem "middleman-syntax" # https://github.com/middleman/middleman-syntax
 gem "middleman-minify-html"
+gem "middleman-google-analytics"
 
 gem 'execjs'
 gem 'therubyracer'
@@ -16,3 +22,10 @@ gem "dotenv"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
+
+# For article summaries
+gem 'nokogiri'
+gem "kramdown"
+
+# External tools that this project uses.
+gem 'rake', require: false
