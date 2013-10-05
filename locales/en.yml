@@ -1,0 +1,28 @@
+---
+en:
+    commercial_projects: "Commercial Projects"
+
+    cm_apprupt_desc: "Ads management service - backend, custom framework"
+    cm_benc_desc: "Polish parenting service, custom framework"
+    cm_clip3_desc: "Youth Camp Managment service"
+    cm_getondek_desc: "Sports Card Creator"
+    cm_mymonki_desc: "Childrens accesories store, magento template"
+    cm_sciaga_desc: "Polish education service, custom framework"
+    cm_zaliczaj_desc: "Polish education service, custom framework"
+
+    private_projects: Private Projects
+    this_blog: This Blog
+    pr_this_blog: Pre-cooked personal website powered by
+    pr_tvquery: Customisable TV Guide
+
+    skillset: Skillset
+    programming_markup_languages: Programming / markup languages
+    software: Software
+    foreign_languages: Foreign languages
+    english: English
+
+    categories: Categories
+
+    paths:
+        archive: "archive"
+        categories: "categories"
