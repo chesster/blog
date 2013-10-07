@@ -23,42 +23,32 @@ set :locales_dir, "locales"
 set :uuid, UUID.create_sha1('malik.pro', UUID::NameSpace_URL)
 
  # Blog settings
-activate :blog do |blog|
-  blog.sources = "articles/:year-:month-:day-:title.html"
-  blog.default_extension = ".markdown"
 
-  blog.permalink = ":title-:year:month:day.html"
-  blog.year_link = ":year.html"
-  blog.month_link = ":year/:month.html"
-  blog.day_link = ":year/:month/:day.html"
+def blog_set (obj, name, prefix="")
+  obj.sources = "articles/"+name+"/:year-:month-:day-:title.html"
+  obj.default_extension = ".markdown"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
-  blog.layout = "layouts/article_layout.haml"
+  obj.permalink = prefix+"/:title-:year:month:day.html"
+  obj.year_link = prefix+"/:year.html"
+  obj.month_link = prefix+"/:year/:month.html"
+  obj.day_link = prefix+"/:year/:month/:day.html"
+  obj.taglink = prefix+"/:tag.html"
 
-  blog.taglink = ":tag.html"
-  blog.name = "en"
-  blog.prefix = ""
-  blog.paginate = false
+  obj.tag_template = "tag.html"
+  obj.calendar_template = "calendar.html"
+  obj.layout = "layouts/article_layout.haml"
+
+  obj.name = name
+  obj.paginate = false
+  obj
 end
 
 activate :blog do |blog|
-  blog.sources = "articles/:year-:month-:day-:title.html"
-  blog.default_extension = ".markdown"
+  blog_set blog, 'en'
+end
 
-  blog.permalink = ":title-:year:month:day.html"
-  blog.year_link = ":year.html"
-  blog.month_link = ":year/:month.html"
-  blog.day_link = ":year/:month/:day.html"
-
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
-  blog.layout = "layouts/article_layout.haml"
-
-  blog.taglink = ":tag.html"
-  blog.name = "pl"
-  blog.prefix = "pl"
-  blog.paginate = false
+activate :blog do |blog|
+  blog_set blog, 'pl', 'pl'
 end
 
 page "/sitemap.xml", :layout => "sitemap.xml"
