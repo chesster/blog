@@ -28,16 +28,16 @@ activate :blog do |blog|
   blog.default_extension = ".markdown"
 
   blog.permalink = ":title-:year:month:day.html"
-  blog.year_link = "archive/:year.html"
-  blog.month_link = "archive/:year/:month.html"
-  blog.day_link = "archive/:year/:month/:day.html"
+  blog.year_link = ":year.html"
+  blog.month_link = ":year/:month.html"
+  blog.day_link = ":year/:month/:day.html"
 
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
   blog.layout = "layouts/article_layout.haml"
 
-  # blog.prefix = "blog"
   blog.taglink = ":tag.html"
+  blog.name = "en"
   blog.paginate = false
 end
 
