@@ -4,7 +4,7 @@ Dotenv.load
 I18n.default_locale = :en
 Time.zone = "UTC"
 
-activate :i18n
+activate :i18n, :path => "/:locale/", :mount_at_root => :en, :lang_map => { :en => :en, :pl => :pl }
 activate :livereload
 activate :automatic_image_sizes
 activate :syntax, :line_numbers => true
@@ -22,8 +22,7 @@ set :locales_dir, "locales"
 # Create an RFC4122 UUID http://www.ietf.org/rfc/rfc4122.txt
 set :uuid, UUID.create_sha1('malik.pro', UUID::NameSpace_URL)
 
- # Blog settings
-
+ # Blog settings - GLOBAL
 def blog_set (obj, name, prefix="")
   obj.sources = "articles/"+name+"/:year-:month-:day-:title.html"
   obj.default_extension = ".markdown"
@@ -34,25 +33,25 @@ def blog_set (obj, name, prefix="")
   obj.day_link = prefix+"/:year/:month/:day.html"
   obj.taglink = prefix+"/:tag.html"
 
-  obj.tag_template = "tag.html"
-  obj.calendar_template = "calendar.html"
   obj.layout = "layouts/article_layout.haml"
+
+  obj.tag_template = "tag."+name+".html"
+  obj.calendar_template = "calendar."+name+".html"
 
   obj.name = name
   obj.paginate = false
   obj
 end
-
+# Blog settings - EN
 activate :blog do |blog|
   blog_set blog, 'en'
 end
-
+# Blog settings - PL
 activate :blog do |blog|
   blog_set blog, 'pl', 'pl'
 end
 
 page "/sitemap.xml", :layout => "sitemap.xml"
-page "/feed.xml", :layout => false
 
 # Build-specific configuration
 configure :build do

@@ -22,6 +22,8 @@ en:
     english: English
 
     categories: Categories
+    article_categories: Article Categories
+    follow_me: Follow me
 
     paths:
         archive: "archive"

@@ -22,6 +22,8 @@ pl:
     english: Angielski
 
     categories: Kategorie
+    article_categories: Kategorie postów
+    follow_me: Obserwuj
 
     paths:
         archive: "archiwum"

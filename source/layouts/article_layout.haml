@@ -1,9 +1,8 @@
 ---
 layout: article
 ---
-
+-force_locale current_page
 - wrap_layout :layout do
-    
     %p.meta
         =current_page.date.strftime('%B %e, %Y')
         %a{href: "/"}
@@ -16,7 +15,7 @@ layout: article
         %article= yield
     %p
         %strong 
-            Categories:
+            #{t :categories}:
         =tags(current_page)
 
     .newsletter

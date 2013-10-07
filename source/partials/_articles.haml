@@ -1,8 +1,7 @@
 %ul#blog-posts.posts
-  / - all_articles.select {|a| a.data[:lang] =='pl'  }.each_with_index do |article, i|
   - all_articles.each_with_index do |article, i|
     %li
-      %span.grey #{article.date.strftime('%e %B %Y')} »
+      %span.grey #{delocalized_date article.date} »
       =link_to article.title, article
       - article.tags.each do |tag|
         %div.pull-right

@@ -1,0 +1,14 @@
+---
+title: Przeglądaj wg kategorii
+pageable: false
+blog: pl
+lang: pl
+---
+-force_locale current_page
+%h2
+  %i.icon-bookmark
+  Posty w kategorii "#{tagname}"
+
+= partial('partials/articles', :locals => {:all_articles => page_articles})
+
+= partial 'partials/pages'

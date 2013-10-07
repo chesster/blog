@@ -1,0 +1,21 @@
+---
+title: Archives
+pageable: false
+blog: pl
+lang: pl
+---
+-force_locale current_page
+%h2
+  %i.icon-bookmark
+  Posty w  
+  - case page_type
+  - when 'day'
+    = Date.new(year, month, day).strftime('%b %e %Y')
+  - when 'month'
+    = Date.new(year, month, 1).strftime('%b %Y')
+  - when 'year'
+    = year
+= partial('partials/articles', :locals => {:all_articles => page_articles})
+
+
+= partial 'partials/pages'

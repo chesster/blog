@@ -1,6 +1,10 @@
+---
+layout: false
+blog: en
+---
+site_url = build? ? "http://malik.pro/" : "http://localhost:4567/"
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  site_url = "http://malik.pro"
   xml.title "Malik.pro"
   xml.subtitle "Developer Blog"
   xml.id URI.join(site_url, blog.options.prefix.to_s)

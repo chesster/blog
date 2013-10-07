@@ -1,9 +1,10 @@
+- (I18n.locale = current_page.data.lang.to_sym) if current_page.data.lang
 !!!
-/[if lt IE 7 ] <html class="ie ie6" lang="en">
-/[if IE 7 ] <html class="ie ie7" lang="en">
-/[if IE 8 ] <html class="ie ie8" lang="en">
+#{'<!--[if lt IE 7 ]> <html class="ie ie6" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
+#{'<!--[if IE 7 ]> <html class="ie ie7" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
+#{'<!--[if IE 8 ]> <html class="ie ie8" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
 / [if (gte IE 9)|!(IE)]><!
-%html{lang: "en"}
+%html{lang: "#{I18n.locale}"}
   / <![endif]
   %head
     %meta{charset: "utf-8"}/
@@ -51,7 +52,7 @@
         %nav
           %h1>
           %span#logo-container
-            %a{href: "/"}
+            %a{href: get_root_url(current_page) }
               %span.logo-bracket> {
               m
               %span.logo-bracket> }
@@ -68,14 +69,12 @@
             / %h5.menu Search
             = partial 'partials/google_search'
             -if blog.tags
-              %h5.menu Article categories
+              %h5.menu 
+                =t :article_categories
               =tag_cloud
             %hr/
-            / %h5.menu Avertisement
-            / %hr/
-            / %h5.menu Follow me
             #social
-              Follow me:
+              #{t :follow_me}:
               #stalker
                 %a{href: "https://bitbucket.org/chesster/", title: "chesster on BitBucket"}
                   %i.icon-bitbucket-sign
