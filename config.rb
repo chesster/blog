@@ -4,7 +4,7 @@ Dotenv.load
 I18n.default_locale = :en
 Time.zone = "UTC"
 
-activate :i18n
+# activate :i18n
 activate :livereload
 activate :automatic_image_sizes
 activate :syntax, :line_numbers => true
