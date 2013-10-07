@@ -1,0 +1,26 @@
+---
+description: "desc"
+keywords "keyword": 
+author "Łukasz Malik": 
+title: Portfolio
+pageable: true
+blog: pl
+per_page: 10
+---
+- if not blog.articles.empty?
+  %h2
+    %i.icon-bookmark
+    Posty na blogu
+  = partial('partials/articles', :locals => {:all_articles => blog.articles})
+  %hr/
+
+= partial 'partials/commercial_projects'
+
+= partial 'partials/private_projects'
+
+= partial 'partials/skillset'
+
+%h2
+  %i.icon-map-marker
+  Lokalizacja
+%div#my-location
