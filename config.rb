@@ -4,7 +4,7 @@ Dotenv.load
 I18n.default_locale = :en
 Time.zone = "UTC"
 
-# activate :i18n
+activate :i18n
 activate :livereload
 activate :automatic_image_sizes
 activate :syntax, :line_numbers => true
@@ -38,6 +38,26 @@ activate :blog do |blog|
 
   blog.taglink = ":tag.html"
   blog.name = "en"
+  blog.prefix = ""
+  blog.paginate = false
+end
+
+activate :blog do |blog|
+  blog.sources = "articles/:year-:month-:day-:title.html"
+  blog.default_extension = ".markdown"
+
+  blog.permalink = ":title-:year:month:day.html"
+  blog.year_link = ":year.html"
+  blog.month_link = ":year/:month.html"
+  blog.day_link = ":year/:month/:day.html"
+
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+  blog.layout = "layouts/article_layout.haml"
+
+  blog.taglink = ":tag.html"
+  blog.name = "pl"
+  blog.prefix = "pl"
   blog.paginate = false
 end
 
