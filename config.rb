@@ -13,11 +13,16 @@ activate :syntax, :line_numbers => true
 set :css_dir, 'stylesheets'
 set :images_dir, 'images'
 set :js_dir, 'javascripts'
+set :haml, { ugly: true }
 
 set :helpers_dir, "helpers"
 set :layout, :_auto_layout
 set :layouts_dir, "layouts"
 set :locales_dir, "locales"
+
+# set :markdown_engine, :redcarpet
+set :markdown_engine, :kramdown
+set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 # Create an RFC4122 UUID http://www.ietf.org/rfc/rfc4122.txt
 set :uuid, UUID.create_sha1('malik.pro', UUID::NameSpace_URL)

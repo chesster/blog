@@ -1,6 +1,6 @@
 #disqus_thread
 :javascript
-  var disqus_shortname = 'malikpro';
+  var disqus_shortname = 'malikpro#{get_root_tag(current_page)}';
   var disqus_identifier = '#{current_page.url}';
   var disqus_title = '#{current_page.title}';
   (function() {

@@ -130,3 +130,40 @@ p.error404-desc {
         }
     }
 }
+
+ul.langs {
+    margin: 0 5px 0 0;
+    li {
+        display: inline;
+        margin: 0;
+        a {
+            text-decoration: none;
+        }
+        img {
+            margin: 0;
+            display: inline;
+        }
+    }
+    right: 5px;
+    position: absolute;
+}
+
+.title {
+    font-size: 28px;
+    line-height: 30px;
+    
+}
+#mc-embedded-subscribe{
+    margin-top: -15px;
+}
+.categories, .newsletter {
+    font-size: 14px;
+    line-height: 20px;
+}
+article {
+    font-size: 14px;
+    line-height: 15px;
+    pre.highlight {
+        line-height: 18px;
+    }
+}

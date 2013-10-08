@@ -1,4 +1,4 @@
-- (I18n.locale = current_page.data.lang.to_sym) if current_page.data.lang
+-force_locale current_page
 !!!
 #{'<!--[if lt IE 7 ]> <html class="ie ie6" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
 #{'<!--[if IE 7 ]> <html class="ie ie7" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
@@ -11,42 +11,45 @@
     %meta{content: "tmcKOx1zMYBWB2eWotWenUeXCZ2xuaTo5CHRjC6rjdw", name: "google-site-verification"}/
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
 
-    -if current_page.data.description
-      %meta{content: current_page.data.description, name: "description"}/
-    -else
-      %meta{content: "", name: "description"}/
-
-    -if current_page.data.keywords
-      %meta{content: current_page.data.keywords, name: "keywords"}/
-    -else
-      %meta{content: "", name: "keywords"}/
-
-    -if current_page.data.author
-      %meta{content: current_page.data.author, name: "author"}/
-    -else
-      %meta{content: "", name: "author"}/
+    %meta{content: (tplvar 'description', data, current_page), name: "description"}/
+    %meta{content: (tplvar 'keywords', data, current_page), name: "keywords"}/
+    %meta{content: (tplvar 'author', data, current_page), name: "author"}/
 
     %title
       = data.page.title
-      \- Łukasz Malik (webdeveloper)
+      \-
+      = tplvar 'description', data, current_page
 
-    %link{href: "feed.xml", rel: "alternate", title: "#{data.page.title} ATOM Feed", type: "application/atom+xml"}/
-    / %link{href: "/", rel: "canonical"}/
+    %link{href: "feed.xml", rel: "alternate", title: (tplvar 'description', data, current_page) + " ATOM Feed", type: "application/atom+xml"}/
     
     =stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'
     =stylesheet_link_tag '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
     =stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
     =stylesheet_link_tag 'all.css'
-    / =stylesheet_link_tag 'syntax.css'
+    =stylesheet_link_tag 'syntax.css'
 
     /[if IE 7]
       =stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css'
 
-    %link{href: "/atom.xml", rel: "alternate", title: "Łukasz Malik", type: "application/rss+xml"}/
-    
     =favicon_tag 'favicon.ico'
 
   %body
+    %ul.langs.unstyled
+      - if I18n.locale == :pl
+        %li
+          =tag :img, :src => "/images/pl_g.png"
+        %li
+          %a{:href => "/"}>
+            = tag :img, :src => "/images/gb.png"
+      -else
+        %li
+          %a{:href => "/pl"}>
+            =tag :img, :src => "/images/pl.png"
+        %li
+          %a{:href => "/"}>
+            = tag :img, :src => "/images/gb_g.png"
+
+
     .container
       .four.columns.sidebar
         %nav
@@ -56,44 +59,31 @@
               %span.logo-bracket> {
               m
               %span.logo-bracket> }
-          %h2
-            Łukasz Malik
+
+          = partial 'partials/intro.' + I18n.locale.to_s
+
+          = partial 'partials/google_search'
+          -if blog.tags
+            %h5.menu 
+              =t :article_categories
+            =tag_cloud
           %hr/
-          %ul
-            %p Freelancer, webdeveloper, programmer, Linux user.
-            %p
-              \... for 
-              %a{:href => "mailto:&#108;&#117;&#107;&#097;&#115;&#122;&#064;&#109;&#097;&#108;&#105;&#107;&#046;&#112;&#114;&#111;"} hire
-              \.
-            %hr/
-            / %h5.menu Search
-            = partial 'partials/google_search'
-            -if blog.tags
-              %h5.menu 
-                =t :article_categories
-              =tag_cloud
-            %hr/
-            #social
-              #{t :follow_me}:
-              #stalker
-                %a{href: "https://bitbucket.org/chesster/", title: "chesster on BitBucket"}
-                  %i.icon-bitbucket-sign
-                %a{href: "https://twitter.com/lukaszmalikpro", title: "lukaszmalikpro on Twitter"}
-                  %i.icon-twitter-sign
-                %a#rss{href: "http://feeds.feedburner.com/malikpro", title: "RSS feed"}
-                  %i.icon-rss-sign
-            %hr/
+          #social
+            #{t :follow_me}:
+            #stalker
+              %a{href: "https://bitbucket.org/chesster/", title: "chesster@BitBucket"}
+                %i.icon-bitbucket-sign
+              %a{href: "https://twitter.com/lukaszmalikpro", title: "lukaszmalikpro@Twitter"}
+                %i.icon-twitter-sign
+              %a#rss{href: "http://feeds.feedburner.com/malikpro", title: "RSS"}
+                %i.icon-rss-sign
+          %hr/
       .eleven.columns.content
         #home
           = yield
         .footer
           .disclaimer
-            © Łukasz Malik, 2013 — built with 
-            %a{:href => "http://github.com/swanson/lagom"} Lagom Theme
-            ported for
-            %a{:href => "http://directory.middlemanapp.com"} Middleman
-            powered by
-            %a{:href => "http://www.ruby-lang.org"} Ruby 
+            = partial 'partials/footer.' + I18n.locale.to_s
 
 
   %script{src: "http://maps.googleapis.com/maps/api/js?sensor=false", type: "text/javascript"}

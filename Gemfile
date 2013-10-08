@@ -25,8 +25,8 @@ gem "dotenv"
 gem "builder", "~> 3.0"
 
 # For article summaries
-# gem 'nokogiri'
-# gem "kramdown"
+gem 'nokogiri'
+gem "kramdown"
 
 # External tools that this project uses.
 gem 'rake', require: false
