@@ -54,35 +54,35 @@ Zakładając, że używacie Linuksa/OSXa przystępujemy do instalacji.
 Ci którzy jeszcze tego nie zrobili, powinni zainstalować [RVM](https://rvm.io/rvm/install). Nie jest to oczywiście wymagane, ale się przydaje, tak więc: 
 
 ~~~
-    $ \curl -L https://get.rvm.io | bash
-    $ source ~/.rvm/scripts/rvm
+$ \curl -L https://get.rvm.io | bash
+$ source ~/.rvm/scripts/rvm
 ~~~
 
 Sprawdzamy swoją konfigurację...
 
 ~~~
-    $ type rvm | head -n 1
-    rvm is a function
+$ type rvm | head -n 1
+rvm is a function
 ~~~
 
 ... i instalujemy odpowiednią wersję Ruby.
 
 ~~~
-    $ rvm install 1.9.2
+$ rvm install 1.9.2
 ~~~
 
 ### Instalacja Middlemana
 Instalujemy gema:
 
 ~~~
-    $ gem install middleman
-    $ gem install middleman-blog # opcjonalnie, ale do tego przykładu się przyda.
+$ gem install middleman
+$ gem install middleman-blog # opcjonalnie, ale do tego przykładu się przyda.
 ~~~
 
 Inicjujemy projekt (w założeniu blog).
 
 ~~~ shell
-    $ middleman init blog --template=blog
+$ bundle exec middleman init blog --template=blog
 ~~~
 
  `--template` to oczywiście szablon projektu, dostępne są *html5*, *mobile*, *smacss* (*blog* jest dostępny dopiero po instalacji wtyczki). Społeczność udostępniła też [kilka innych](http://directory.middlemanapp.com/#/templates/all).
@@ -90,25 +90,25 @@ Inicjujemy projekt (w założeniu blog).
 Przechodzimy do `blog` i zmieniamy wpisy w `Gemfile` by korzystać z najnowszych wersji
 
 ~~~ ruby
-    gem "middleman", git: 'https://github.com/middleman/middleman', branch: "master"
-    gem "middleman-blog", git: 'https://github.com/epochwolf/middleman-blog', branch: "master"
+gem "middleman", git: 'https://github.com/middleman/middleman', branch: "master"
+gem "middleman-blog", git: 'https://github.com/epochwolf/middleman-blog', branch: "master"
 ~~~
 
 Instalujemy pakiety...
 
 ~~~ shell
-    $ bundle install
+$ bundle install
 ~~~
 
 ...i gotowe. Teraz możemy zobaczyć co mamy:
 
 ~~~ shell
-    $ middleman server
-    == The Middleman is loading
-    == Locales: en (Default en)
-    == LiveReload is waiting for a browser to connect
-    == The Middleman is standing watch at http://0.0.0.0:4567
-    == Inspect your site configuration at http://0.0.0.0:4567/__middleman/
+$ bundle exec middleman server
+== The Middleman is loading
+== Locales: en (Default en)
+== LiveReload is waiting for a browser to connect
+== The Middleman is standing watch at http://0.0.0.0:4567
+== Inspect your site configuration at http://0.0.0.0:4567/__middleman/
 ~~~
 
 Pierwszy adres to nasz blog, drugi to konfiguracja naszej aplikacji:
@@ -153,15 +153,8 @@ Automagiczny deploy przez `$ middleman build && middleman deploy`. Wtyczka wspie
 gem "middleman-deploy"
 ~~~~
 
-#### middleman-minify-html ( [<i class="icon-external-link"></i>](https://github.com/middleman/middleman-minify-html) )
-Kompresja wyjściowego HTMLa.
-
-~~~ ruby
-gem "middleman-minify-html"
-~~~~
-
 ### Konfiguracja
-Całą aplikację konfigurujemy przez odpowiednie wpisy w `config.rb`. Jako przykład niech posłuży plik z konfiguracją tego bloga:
+Całą aplikację konfigurujemy przez odpowiednie wpisy w `config.rb`. Jako "samotłumaczący się" przykład niech posłuży plik z konfiguracją tego bloga:
 
 ~~~ ruby
 require "lib/uuid"
@@ -174,6 +167,16 @@ activate :i18n, :path => "/:locale/", :mount_at_root => :en, :lang_map => { :en 
 activate :livereload
 activate :automatic_image_sizes
 activate :syntax, :line_numbers => true
+
+activate :deploy do |deploy|
+  # deploy.build_before = true
+  deploy.method = :rsync
+  deploy.host   = "web2.mydevil.net"
+  deploy.path   = "/home/malik/domains/malik.pro/public_html"
+  deploy.user  = "malik"
+  deploy.port  = 22
+  deploy.clean = true # remove orphaned files on remote host
+end
 
 set :css_dir, 'stylesheets'
 set :images_dir, 'images'
@@ -195,11 +198,11 @@ def blog_set (obj, name, prefix="")
   obj.sources = "articles/"+name+"/:year-:month-:day-:title.html"
   obj.default_extension = ".markdown"
 
-  obj.permalink = prefix+"/:title.html"
-  obj.year_link = prefix+"/:year.html"
-  obj.month_link = prefix+"/:year/:month.html"
-  obj.day_link = prefix+"/:year/:month/:day.html"
-  obj.taglink = prefix+"/:tag.html"
+  obj.permalink = prefix+":title.html"
+  obj.year_link = prefix+":year.html"
+  obj.month_link = prefix+":year/:month.html"
+  obj.day_link = prefix+":year/:month/:day.html"
+  obj.taglink = prefix+":tag.html"
 
   obj.layout = "layouts/article_layout.haml"
 
@@ -216,8 +219,14 @@ activate :blog do |blog|
 end
 # Blog settings - PL
 activate :blog do |blog|
-  blog_set blog, 'pl', 'pl'
+  blog_set blog, 'pl', 'pl/'
 end
+
+# Ignore Blog Templates
+ignore "/tag.html"
+ignore "/calendar.html"
+ignore "/pl/tag.html"
+ignore "/pl/calendar.html"
 
 page "/sitemap.xml", :layout => "sitemap.xml"
 
@@ -233,6 +242,30 @@ end
 ~~~~
 
 ### Layouty i szablony
+
+**Layout** (czyli główny szablon strony, ten z metatagami i linkami do css/js) jest standardowo w `/layouts/layout.html`
+Dodatkowo można zignorować layout dla konkretnej strony:
+
+~~~ruby
+page '/kw.html' , :layout => false
+~~~
+
+lub wybrać inny (tu: layouts/single_layout.haml)
+
+~~~ruby
+page '/kw.html', :layout => :single_layout
+~~~
+
+Można też tak zrobić dla całej grupy stron, np zaczynającej się od prefixu:
+
+~~~ruby
+page "blog/*", :layout => :article_layout
+~~~
+
+
+**Partiale** (czyli te części które includujemy są w `partials`, nazwy standardowo zaczynają się od podkreślenia, czyli `= partial 'partials/commercial_projects'` zainkluduje plik `partials/_commercial_projects.haml` (*.haml gdy używamy HAMLa, może być *.erb, ale nie *.erb.html i *haml.html), a dodanie `:locals => {:zmienna => wartość}` przekaże zmienną.
+
+Katalog z layoutami i partialami jak zwykle konfigurujemy w `config.rb`.
 
 #### Helpery
 ...czyli fukncje wspomagające w szablonach. Oprócz kilku [gotowych](http://middlemanapp.com/helpers/) (standardowych w Raisach typu `stylesheet_link_tag`) możemy zdefiniować własne. Umieszczamy je w pliku `custom_helpers` w klasie `CustomHelpers` w katalogu `helpers` lub w innym zdefiniowanym w `config.rb` przez `set :helpers_dir, "__KATALOG__"`.
@@ -262,15 +295,15 @@ Przydatne przy tworzeniu szablonów.
 **Wpisy na blogu** tworzymy przez
 
 ~~~ shell
-    $ middleman article "Tytuł artykułu" [-D _data_]
+$ bundle exec middleman article "Tytuł artykułu" [-D _data_]
 ~~~
 
 Co stworzy plik podobny do `/source/_prefix_bloga_/_sciezka_artykułów_/2013-10-08.tytul-artykulu-html.markdown`. `_prefix_bloga_` ustawiamy przez `blog.prefix = '__PREFIX__` a `_sciezka_artykułów_` przez `blog.sources` w `config.rb` w sekcji 
 
 ~~~ ruby
-    activate :blog do |blog|
-      ...
-    end
+activate :blog do |blog|
+  ...
+end
 ~~~
 
 Data domyślnie jest dzisiejsza. Wpisy z przyszłą datą nie są publikowane. Przydatne gdy mamy zadanie w cronie budujące stronę co jakiś czas.
@@ -296,37 +329,134 @@ set :markdown, :layout_engine => :erb,
 Pliki które będą wysyłane na serwer znajdują się w `/build`. Generujemy to pliki poleceniem
 
 ~~~ shell
-
+$ bundle exec middleman build [--clean] [--verbose]
 ~~~
+Możemy te pliki wysłać na nasz serwer ręcznie albo skorzystać z `middleman-deploy`
 
 ### Deploy
 
+Po instalacji wtyczki `middleman-deploy` musimy ją aktywować w `config.rb` (u nas to linie 12-20). I tak odpowiednio:
+
+ * `deploy.method` - metoda wysyłania na serwer (po pełną listę patrz paragraf o wtyczce)
+ * `deploy.build_before` - Czy budować stornę przed wysyłaniem
+ * `deploy.host` - nasz serwer
+ * `deploy.path` - ścieżka
+ * `deploy.user` - nazwa użytkownika
+ * `deploy.port` - port
+ * `deploy.clean` - czy usuńąć stare, niepodlinkowane pliki z serwera
+
+Gdy to mamy wpisujemy 
+
+~~~shell
+bundle exec middleman deploy --build-before
+~~~
+
+... i strona gotowa.
+
 ## Dwa blogi i dwa języki w jednej aplikacji 
 
+Teraz coś trochę ambitniejszego. Dwie wersje językowe strony i dwa osobne blogi, jeden angielski i jeden polski, z osobnymi notkami i kategoriami. Wszystko co angielskie będzie pod `/` a wszystko co polskie w `/pl`. Na początek kilka słów o lokalizacji (I18n):
+
 ### Dwa języki...
+Lokalizować szablony można na dwa sposoby:
+
+1. Przez przeniesienie szablonu do katalogu `/localizable` i tłumaczenie poszczególnych łańcuchów znaków przez `#{t :string}` (tylko szablony, nie layouty, nie partiale).
+2. Przez stworzenie osobego szablonu do odpowiedniej wersji językowej. Na przyklad `index.pl.haml.html` gdzie "pl" to *pl* to oczywiście skrót od wersji językowej.
+
+Pliki z tłumaczeniami standardowo są umieszczane w `/locales` np `/locales/pl.yml`. Przykładowa zawartość takiego pliku to np.
+
+~~~yaml
+---
+pl:
+    commercial_projects: "Komercyjne projekty"
+    ....
+    paths:
+        archive: "archiwum"
+        categories: "kategorie"
+~~~
+
+Gdzie `paths` to tłumaczenie ścieżek (`/pl/kategorie/` zamiast `/pl/categories/`). 
+Tak zrobione tłumaczenie bedzie dostępne pod */\__JĘZYK\__/*. Odpowiednie prefixy definiujemy w `config.rb` (w naszym przykładzie linia 7). Dodatkowo:
+
+* `:mount_at_root => :en` - domyślny język. Gdy ustawiemy to na `false` każdy język będzie prefixowany.
+* `:lang_map => { :en => :en, :pl => :pl }` - Ręcznie zdefiniowane języki (domyślnie system szuka plików w `/locales/`)
 
 ### ...i dwa blogi...
 
+By stworzyć dodatkowy blog potrzebujemy najnowsze wersje middlemana i wtyczki middleman-blog (o tym pomyśleliśmy przy zmianie w `Gemfile`). Potrzebujemy aktywować wtyczkę dwa razy pamiętająć o róznych przefixach (`blog.prefix`) i nazwach (`blog.name`).
+
+~~~ ruby
+activate :blog do |blog|
+  ...
+  blog.prefix='pl'
+  blog.name='pl'
+  ...
+end
+~~~
+
+Dodatkowo przy dodawaniu notek (*.markdown), szablonie kalendarza (`calendar_template`), tagów (`template`) i strony głownej bloga musimy zadbać o sprecyzowanie o który blog nam chodzi:
+
 ~~~ markdown
 ---
-title: "Middleman: Strony statyczne na przykładzie dwujęzycznego bloga"
-description: "- Hostuj swoją stronę za darmo, nie martwiąc się o efekt wykopu i błedy programistyczne"
-date: 2013-10-08 14:52 UTC
-tags: ruby, middleman
 blog: pl
+---
+~~~
+
+...czyli o podanie nazwy, `pl` w poniższym przykładzie to nie język tylko nazwa bloga.
+
+#### Sztuczka
+`#{I18n.locale}` w szablonie wyświetli nam skrót aktualnie załadowanego języka. Przyda się to np do wpisów w metatagach, a w naszym przykladzie do ładowania innych *partiali* dla każdego języka.
+
+### ...jednocześnie.
+W naszym przykładzie chcemy jednak by i blog i odpowiednia wersja językowa miały ten sam przefix, więc nie ma co liczyć na automatyczne przetłumaczenie. Ustaliliśmy prefix polskiego bloga na `/pl` angielski nie ma prefixu, więc ścieżka `/pl/2013.html` załaduje **angielską** wersję polskiego bloga a `/pl/pl` zwróci 404, więc musimy wymusić wersję językową dla wszystkich elementów polskiego bloga "ręcznie", a robimy to tak:
+
+Tworzymy dodatkową daną w nagłówkach szablonu i notek...
+
+~~~ markdown
+---
 lang: pl
 ---
 ~~~
 
-### ...jednocześnie.
+...i w kodzie szalbonu ustawiamy odpowiednie locale na podstawie tej danej: 
+
+~~~ruby
+(I18n.locale = current_page.data.lang.to_sym) if current_page.data.lang
+~~~
+
+Już prawie działa. Pozostała jeszcze kwestia dat i godzin. Również domyślnie wyświetlają się angielskie, szczególnie dotyczy się to *partials*. Tak więc datę wywołujemy przez: 
+
+~~~ruby
+I18n.l date, :format => '%e %B %Y'
+~~~
+
+Opcjonalnie możemy wrzucić to do helperów. Pozostaje jeszcze kwestia layoutów, które są "nielokalizowalne". Tu po prostu można includować odpowiednie partiale "ręcznie" np przez
+
+~~~haml
+= partial 'partials/intro.' + I18n.locale.to_s
+~~~
+
+####Dodatkowo
+Gdy w configu ustalimy tak jak ja `"tag.(pl|en).html"` i `"calendar.(pl|en).html"` jako szablony tagów kalendarza pamiętajmy by zignorować "czyste" wersje  tych plików w configu inaczej `build` będzie próbował je zbudować, bo są nazwane jak zwykłe "tłumaczone" szablony, a z racji tego ze ustawiliśmy język domyślny, będzie chciał zrobić z *\en\* pliki `calendar.html` i `tag.html` co mu sie nie uda, bo nie ma tam odpowiednich zmiennych. 
+
+~~~ruby
+ignore "/tag.html"
+ignore "/calendar.html"
+ignore "/pl/tag.html"
+ignore "/pl/calendar.html"
+~~~
+
+Błędy builda są w sumie nieszkodliwe, ale lepiej ich nie mieć, bo miedzy nimi może umknąć prawdziwy błąd.
+
+Jest to trochę zagmatwane, nie mam też pewności czy czegoś nie pominąłem, więc odsyłam do [żródeł](https://github.com/malik-pro/) tego bloga.
 
 ## Dodatki
 
 ### Komentarze
-Jedno słowo: [Disqus](http://disqus.com/). Rejestrujemy się w serwisie, pobieramy odpowieni javascript do wstawienia na stronę i już możemy gromadzić naszą społecznośc.
+Jedno słowo: [Disqus](http://disqus.com/). Rejestrujemy się w serwisie, pobieramy odpowieni javascript do wstawienia na stronę i już możemy gromadzić naszą społeczność.
 
 ### Wyszukiwarka
-Tu też za bardzo nie mamy wyjścia. Zostaje [Google Custom Search](https://www.google.com/cse), ewentualnie możemy się pokusić o przeszukiwanie Javascriptem JSONa stworzonego z bazy wspisów (podobnie jak robiliśmy SiteMapę) albo o jakieś [rozwiązanie](https://github.com/reyesr/fullproof) na [Local Storage](http://www.w3schools.com/html/html5_webstorage.asp) ale to już wychodzi po za temat tej notki.
+Tu też za bardzo nie mamy wyjścia. Zostaje [Google Custom Search](https://www.google.com/cse) lub [Swiftype](https://swiftype.com). Ewentualnie możemy się pokusić o przeszukiwanie Javascriptem JSONa stworzonego z bazy wspisów albo o jakieś [rozwiązanie](https://github.com/reyesr/fullproof) na [Local Storage](http://www.w3schools.com/html/html5_webstorage.asp) ale to już wychodzi po za temat tej notki.
 
 ## Podsumowanie
 Tak oto niewielkim sumptem zbudowaliśmy bloga. Mi całość zajęła 10h, ale to tylko dlatego, że nie wszystko było udokumentowane. Podobnym sposobem możemy zbudować też inne strony: wizytówke firmową, katalog pełnometrażówek z Youtube, preclowe zaplecze SEO, statystyki naszego serwera albo aplikację mobilną na [PhoneGapie](https://github.com/pixelsonly/middleman-phonegap). Bez martwienia się o hosting, bezpieczeńswto naszej aplikacji, wydajność i bazy danych. Ogólnie - całkiem nieźle.

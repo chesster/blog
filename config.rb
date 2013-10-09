@@ -9,6 +9,15 @@ activate :livereload
 activate :automatic_image_sizes
 activate :syntax, :line_numbers => true
 
+activate :deploy do |deploy|
+  # deploy.build_before = true
+  deploy.method = :rsync
+  deploy.host   = "web2.mydevil.net"
+  deploy.path   = "/home/malik/domains/malik.pro/public_html"
+  deploy.user  = "malik"
+  deploy.port  = 22
+  deploy.clean = true # remove orphaned files on remote host
+end
 
 set :css_dir, 'stylesheets'
 set :images_dir, 'images'
@@ -32,11 +41,11 @@ def blog_set (obj, name, prefix="")
   obj.sources = "articles/"+name+"/:year-:month-:day-:title.html"
   obj.default_extension = ".markdown"
 
-  obj.permalink = prefix+"/:title.html"
-  obj.year_link = prefix+"/:year.html"
-  obj.month_link = prefix+"/:year/:month.html"
-  obj.day_link = prefix+"/:year/:month/:day.html"
-  obj.taglink = prefix+"/:tag.html"
+  obj.permalink = prefix+":title.html"
+  obj.year_link = prefix+":year.html"
+  obj.month_link = prefix+":year/:month.html"
+  obj.day_link = prefix+":year/:month/:day.html"
+  obj.taglink = prefix+":tag.html"
 
   obj.layout = "layouts/article_layout.haml"
 
@@ -53,14 +62,23 @@ activate :blog do |blog|
 end
 # Blog settings - PL
 activate :blog do |blog|
-  blog_set blog, 'pl', 'pl'
+  blog_set blog, 'pl', 'pl/'
 end
+
+# Ignore Blog Templates
+ignore "/tag.html"
+ignore "/calendar.html"
+ignore "/pl/tag.html"
+ignore "/pl/calendar.html"
+
+
+page '/kw.html' , :layout => :single_layout
 
 page "/sitemap.xml", :layout => "sitemap.xml"
 
 # Build-specific configuration
 configure :build do
-  activate :minify_html
+  # activate :minify_html
   activate :gzip
   activate :minify_css
   activate :minify_javascript

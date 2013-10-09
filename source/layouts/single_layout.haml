@@ -1,0 +1,42 @@
+-force_locale current_page
+!!!
+#{'<!--[if lt IE 7 ]> <html class="ie ie6" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
+#{'<!--[if IE 7 ]> <html class="ie ie7" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
+#{'<!--[if IE 8 ]> <html class="ie ie8" lang="'}#{I18n.locale}#{'"> <![endif]-->'}
+/ [if (gte IE 9)|!(IE)]><!
+%html{lang: "#{I18n.locale}"}
+  / <![endif]
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "tmcKOx1zMYBWB2eWotWenUeXCZ2xuaTo5CHRjC6rjdw", name: "google-site-verification"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+
+    %meta{content: (tplvar 'description', data, current_page), name: "description"}/
+    %meta{content: (tplvar 'keywords', data, current_page), name: "keywords"}/
+    %meta{content: (tplvar 'author', data, current_page), name: "author"}/
+
+    %title
+      = data.page.title
+      \-
+      = tplvar 'description', data, current_page
+
+    %link{href: "feed.xml", rel: "alternate", title: (tplvar 'description', data, current_page) + " ATOM Feed", type: "application/atom+xml"}/
+    
+    =stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'
+    =stylesheet_link_tag 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
+    =stylesheet_link_tag 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+
+    =stylesheet_link_tag 'http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.css'
+    =stylesheet_link_tag 'clean.css'
+
+    /[if IE 7]
+      =stylesheet_link_tag 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css'
+
+    =favicon_tag 'favicon.ico'
+
+  %body
+    .container
+      .two.columns.sidebar
+      .thirteen.columns.content
+        #home
+          = yield

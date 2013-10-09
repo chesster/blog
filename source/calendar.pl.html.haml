@@ -6,16 +6,15 @@ lang: pl
 ---
 -force_locale current_page
 %h2
-  / =current_page.hash
-  / %i.icon-bookmark
-  / Archiwum:
-  / - case (page_type if page_type)
-  / - when 'day'
-  /   = I18n.l Date.new(year, month, day), :format => '%B %e %Y'
-  / - when 'month'
-  /   = I18n.l Date.new(year, month, 1), :format => '%B %Y'
-  / - when 'year'
-  /   = year
+  %i.icon-bookmark
+  Archiwum:
+  - case (page_type if page_type)
+  - when 'day'
+    = I18n.l Date.new(year, month, day), :format => '%B %e %Y'
+  - when 'month'
+    = I18n.l Date.new(year, month, 1), :format => '%B %Y'
+  - when 'year'
+    = year
 = partial('partials/articles', :locals => {:all_articles => page_articles})
 
 
