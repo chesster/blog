@@ -2,10 +2,6 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
-# gem "middleman", "~> 3.1.5"
-# gem "middleman-syntax" 
-# gem "middleman-blog"
-
 gem "middleman", git: 'https://github.com/middleman/middleman', branch: "master"
 gem "middleman-blog", git: 'https://github.com/epochwolf/middleman-blog', branch: "master"
 gem "middleman-syntax", git: 'https://github.com/middleman/middleman-syntax', branch: "master"

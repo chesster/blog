@@ -22,7 +22,7 @@ set :locales_dir, "locales"
 
 # set :markdown_engine, :redcarpet
 set :markdown_engine, :kramdown
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+set :markdown, :fenced_code_blocks => true, :smartypants => true, :autolink => true
 
 # Create an RFC4122 UUID http://www.ietf.org/rfc/rfc4122.txt
 set :uuid, UUID.create_sha1('malik.pro', UUID::NameSpace_URL)
@@ -32,7 +32,7 @@ def blog_set (obj, name, prefix="")
   obj.sources = "articles/"+name+"/:year-:month-:day-:title.html"
   obj.default_extension = ".markdown"
 
-  obj.permalink = prefix+"/:title-:year:month:day.html"
+  obj.permalink = prefix+"/:title.html"
   obj.year_link = prefix+"/:year.html"
   obj.month_link = prefix+"/:year/:month.html"
   obj.day_link = prefix+"/:year/:month/:day.html"

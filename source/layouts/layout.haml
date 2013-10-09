@@ -23,13 +23,15 @@
     %link{href: "feed.xml", rel: "alternate", title: (tplvar 'description', data, current_page) + " ATOM Feed", type: "application/atom+xml"}/
     
     =stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'
-    =stylesheet_link_tag '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
-    =stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+    =stylesheet_link_tag 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
+    =stylesheet_link_tag 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+
+    =stylesheet_link_tag 'http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.css'
     =stylesheet_link_tag 'all.css'
     =stylesheet_link_tag 'syntax.css'
 
     /[if IE 7]
-      =stylesheet_link_tag '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css'
+      =stylesheet_link_tag 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css'
 
     =favicon_tag 'favicon.ico'
 
@@ -72,10 +74,12 @@
             #{t :follow_me}:
             #stalker
               %a{href: "https://bitbucket.org/chesster/", title: "chesster@BitBucket"}
+                %i.icon-github-sign
+              %a{href: "https://github.com/malik-pro/", title: "malik-pro@Github"}
                 %i.icon-bitbucket-sign
               %a{href: "https://twitter.com/lukaszmalikpro", title: "lukaszmalikpro@Twitter"}
                 %i.icon-twitter-sign
-              %a#rss{href: "http://feeds.feedburner.com/malikpro", title: "RSS"}
+              %a#rss{href: "http://feeds.feedburner.com/malikpro"+(get_root_tag current_page) , title: "RSS"}
                 %i.icon-rss-sign
           %hr/
       .eleven.columns.content
@@ -86,6 +90,7 @@
             = partial 'partials/footer.' + I18n.locale.to_s
 
 
-  %script{src: "http://maps.googleapis.com/maps/api/js?sensor=false", type: "text/javascript"}
-  %script{src: "http://code.jquery.com/jquery-1.10.1.min.js", type: "text/javascript"}
-  %script{src: "/javascripts/all.js", type: "text/javascript"}
+    =javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=false'
+    =javascript_include_tag 'http://code.jquery.com/jquery-1.10.1.min.js'
+    =javascript_include_tag 'http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.js'
+    =javascript_include_tag '/javascripts/all.js'

@@ -1,10 +1,10 @@
 %ul#blog-posts.posts
-  - all_articles.each_with_index do |article, i|
-    %li
-      %span.grey #{delocalized_date article.date} »
-      =link_to article.title, article
-      - article.tags.each do |tag|
-        %div.pull-right
-          %a{:href => tag_path(tag)}
-            %span.label.label-info
-              =tag
+    - all_articles.each_with_index do |article, i|
+        %li
+            %span.grey 
+                #{delocalized_date article.date} »
+                %div.pull-right<
+                    - article.tags.each do |tag|
+                        %a{:href => tag_path(tag)}
+                            %span.label.label-info> #{tag}
+            =link_to truncate(article.title, :length => 55), article,:title=>article.title, :_desc=>article.data.description, :class=>'title_tip'
