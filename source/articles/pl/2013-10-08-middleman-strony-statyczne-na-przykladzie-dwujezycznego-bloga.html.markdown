@@ -361,7 +361,7 @@ Teraz coś trochę ambitniejszego. Dwie wersje językowe strony i dwa osobne blo
 Lokalizować szablony można na dwa sposoby:
 
 1. Przez przeniesienie szablonu do katalogu `/localizable` i tłumaczenie poszczególnych łańcuchów znaków przez `#{t :string}` (tylko szablony, nie layouty, nie partiale).
-2. Przez stworzenie osobego szablonu do odpowiedniej wersji językowej. Na przyklad `index.pl.haml.html` gdzie "pl" to *pl* to oczywiście skrót od wersji językowej.
+2. Przez stworzenie osobnego szablonu do odpowiedniej wersji językowej. Na przyklad `index.pl.haml.html` gdzie "pl" to *pl* to oczywiście skrót od wersji językowej.
 
 Pliki z tłumaczeniami standardowo są umieszczane w `/locales` np `/locales/pl.yml`. Przykładowa zawartość takiego pliku to np.
 
