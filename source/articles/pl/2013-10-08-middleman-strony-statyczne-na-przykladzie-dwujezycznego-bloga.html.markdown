@@ -1,6 +1,6 @@
 ---
 title: "Middleman: Strony statyczne na przykładzie dwujęzycznego bloga"
-description: "- Hostuj swoją stronę za darmo, nie martwiąc się o efekt wykopu i błedy programistyczne"
+description: "- Hostuj swoją stronę za darmo, nie martwiąc się o efekt wykopu i błędy programistyczne"
 date: 2013-10-08 14:52 UTC
 tags: ruby, middleman
 blog: pl
@@ -22,20 +22,20 @@ Można by zapytać po co w erze Ruby on Rails, Django i Wordpressa bawić się s
 * **Hosting**. Możemy hostować taką stronę gdzie chcemy, od [Github Pages](http://pages.github.com/) i Dropboxa przez darmowe hostingi, [RassberyPi](https://mug.im/blog/2013/01/20/how-to-deploy-octopress-on-a-raspberrypi/) po [TOR](https://www.torproject.org)a.
 * **Łatwy backup**. Wszystko, od kodu po dane można trzymać na Githubie/Bitbuckecie/Dropboxie i przenieść stronę z serwera na serwer w minutę.
 * **Ulubiony edytor zamiast wymuszonych WYSIWYGów**. Nie wiem jak wy, ale wole dodawać treść Vimem w markdownie, offline, niż się bawić w przeglądarki, ewentualnie w *kopiuj-wklej*.
-* **Własne skrytpy**. Z czasem możemy sobie stworzyć zestaw skryptów w dowolnym języku programowania i jeszcze bardziej ułatwić sobie pracę.
+* **Własne skrypty**. Z czasem możemy sobie stworzyć zestaw skryptów w dowolnym języku programowania i jeszcze bardziej ułatwić sobie pracę.
 * **Utylizacja usług zewnętrznych**. Istnieje wiele gotowych zewnętrznych komponentów które możemy wykorzystać. [Disqus](http://disqus.com/) tu jest dobrym przykładem: sami zrobimy to samo najwyżej równie dobrze, częściej gorzej.
 
 ### Wady
-* **Brak interakcji z użytkownikiem**. Po za javascriptem z ciastkami i Local Storage i wszystkimi zewnętrznymi gotowcami których poszukamy w internecie (albo napiszemy sami) niewiele tu jesteśmy w stanie zdziałać.
+* **Brak interakcji z użytkownikiem**. Po za JavaScriptem z ciastkami i Local Storage i wszystkimi zewnętrznymi gotowcami których poszukamy w internecie (albo napiszemy sami) niewiele tu jesteśmy w stanie zdziałać.
 * **Brak zaawansowanej wyszukiwarki**. Po za gotowcem od Google z wyszukiwarką będzie ciężko. szczególnie, jeśli mamy dużo (1000+) treści, pozostają nam tylko frontendowe rozwiązania, a nie wszędzie się one sprawdzą.
-* **Bardzo kłopotpliwe przy dużej ilości treści i częstych zmianach**. Przegenerowanie paru milionów stron troche trwa a uploadowanie gigabajtow za każdym razem gdy trochę zmienimy wygląd to jakaś pomyłka.
+* **Bardzo kłopotliwe przy dużej ilości treści i częstych zmianach**. Przegenerowanie paru milionów stron trochę trwa a uploadowanie gigabajtów za każdym razem gdy trochę zmienimy wygląd to jakaś pomyłka.
 
 
 ## Ale jak to tak? HTML? Ręcznie?!
-**Nie**. Nikt oczywiście nie bedzię pisał HTMLa samemu. Zmiana w wyglądzie była by zabawą na cały dzień albo i dłużej, nie wspominając o kanałach RSS, Sitemapach itp. Dlatego wymyślono gotowce. Aplikacje w np w Pythonie, Rubym które to ułatwią na tyle, że nie odczujemy tego przeskoku. No i nadal będziemy mogli korzystać ze wszystkich dobrodziejstw *nowego internetu* typu [LESS](http://haml.info/), [HAML](http://haml.info/), [Jinja](http://jinja.pocoo.org/) i co tam sobie wymyślimy.
+**Nie**. Nikt oczywiście nie będzie pisał HTMLa samemu. Zmiana w wyglądzie była by zabawą na cały dzień albo i dłużej, nie wspominając o kanałach RSS, Sitemapach itp. Dlatego wymyślono gotowce. Aplikacje w np w Pythonie, Rubym które to ułatwią na tyle, że nie odczujemy tego przeskoku. No i nadal będziemy mogli korzystać ze wszystkich dobrodziejstw *nowego internetu* typu [LESS](http://haml.info/), [HAML](http://haml.info/), [Jinja](http://jinja.pocoo.org/) i co tam sobie wymyślimy.
 
 ## Gotowe rozwiązania
-W trakcie pisania tej notki istnieje [194](http://staticsitegenerators.net/ "Lista systemów to generowania stron statycznych") systemów to generowania stron statycznych. Z popularniejszych (w miare sprawnie rozwijanych) można wymienić:
+W trakcie pisania tej notki istnieje [194](http://staticsitegenerators.net/ "Lista systemów to generowania stron statycznych") systemów to generowania stron statycznych. Z popularniejszych (w miarę sprawnie rozwijanych) można wymienić:
 
 1. [Jekyll](http://jekyllrb.com/) ([Ruby](http://ruby-lang.org))
 2. [Octopress](http://octopress.org/) ([Ruby](http://ruby-lang.org))
@@ -113,7 +113,7 @@ $ bundle exec middleman server
 
 Pierwszy adres to nasz blog, drugi to konfiguracja naszej aplikacji:
 
-W przypadku gdy pojawi nam sie komunikat typu 
+W przypadku gdy pojawi nam się komunikat typu 
 
 ~~~ shell
 /home/_USER_/.rvm/gems/ruby-1.9.3-p448/gems/execjs-1.4.0/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
@@ -129,7 +129,7 @@ gem 'therubyracer'
 i wpisujemy `bundle install`
 
 ### Gotowe wtyczki
-Teraz można przystąpić do konfuguracji, ale zanim to zrobimy przejrzyjmy kilka [wtyczek](http://directory.middlemanapp.com/#/extensions/all) wykorzystanych w tym blogu. 
+Teraz można przystąpić do konfiguracji, ale zanim to zrobimy przejrzyjmy kilka [wtyczek](http://directory.middlemanapp.com/#/extensions/all) wykorzystanych w tym blogu. 
 
 
 #### middleman-syntax ( [<i class="icon-external-link"></i>](https://github.com/middleman/middleman-syntax) )
@@ -268,10 +268,10 @@ page "blog/*", :layout => :article_layout
 Katalog z layoutami i partialami jak zwykle konfigurujemy w `config.rb`.
 
 #### Helpery
-...czyli fukncje wspomagające w szablonach. Oprócz kilku [gotowych](http://middlemanapp.com/helpers/) (standardowych w Raisach typu `stylesheet_link_tag`) możemy zdefiniować własne. Umieszczamy je w pliku `custom_helpers` w klasie `CustomHelpers` w katalogu `helpers` lub w innym zdefiniowanym w `config.rb` przez `set :helpers_dir, "__KATALOG__"`.
+...czyli funkcje wspomagające w szablonach. Oprócz kilku [gotowych](http://middlemanapp.com/helpers/) (standardowych w Raisach typu `stylesheet_link_tag`) możemy zdefiniować własne. Umieszczamy je w pliku `custom_helpers` w klasie `CustomHelpers` w katalogu `helpers` lub w innym zdefiniowanym w `config.rb` przez `set :helpers_dir, "__KATALOG__"`.
 
 ### Dane
-Istnieje możliwość zaczytania danych z plików YAML przez wszystkie podstrony w systemie. Pliki te umieszczamy w katalogu `data`. Przyklad (plik `data/main.yml`):
+Istnieje możliwość zaczytania danych z plików YAML przez wszystkie podstrony w systemie. Pliki te umieszczamy w katalogu `data`. Przykład (plik `data/main.yml`):
 
 ~~~ yml
 ---
@@ -281,10 +281,10 @@ keywords: "php, python, django, ruby, ruby on rails"
 title: malik.pro
 ~~~
 
-Teraz dane w szabonie będą dostępne przez `data.main` czyli np `data.main.title`.
+Teraz dane w szablonie będą dostępne przez `data.main` czyli np `data.main.title`.
 
 ### Treść
-Każdy plik z katalogu `source` będzię przetworzony na HTML. Na Przykład plik `/source/faq.haml.html` będzie przetworzony na `/faq.html`, chyba, że każemy systemowi go zignorować przez odpowiedni wpis w `config.rb` np.
+Każdy plik z katalogu `source` będzie przetworzony na HTML. Na Przykład plik `/source/faq.haml.html` będzie przetworzony na `/faq.html`, chyba, że każemy systemowi go zignorować przez odpowiedni wpis w `config.rb` np.
 
 ~~~ ruby
 ignore "/faq.html"
@@ -361,7 +361,7 @@ Teraz coś trochę ambitniejszego. Dwie wersje językowe strony i dwa osobne blo
 Lokalizować szablony można na dwa sposoby:
 
 1. Przez przeniesienie szablonu do katalogu `/localizable` i tłumaczenie poszczególnych łańcuchów znaków przez `#{t :string}` (tylko szablony, nie layouty, nie partiale).
-2. Przez stworzenie osobnego szablonu do odpowiedniej wersji językowej. Na przyklad `index.pl.haml.html` gdzie "pl" to *pl* to oczywiście skrót od wersji językowej.
+2. Przez stworzenie osobnego szablonu do odpowiedniej wersji językowej. Na przykład `index.pl.haml.html` gdzie "pl" to *pl* to oczywiście skrót od wersji językowej.
 
 Pliki z tłumaczeniami standardowo są umieszczane w `/locales` np `/locales/pl.yml`. Przykładowa zawartość takiego pliku to np.
 
@@ -376,14 +376,14 @@ pl:
 ~~~
 
 Gdzie `paths` to tłumaczenie ścieżek (`/pl/kategorie/` zamiast `/pl/categories/`). 
-Tak zrobione tłumaczenie bedzie dostępne pod */\__JĘZYK\__/*. Odpowiednie prefixy definiujemy w `config.rb` (w naszym przykładzie linia 7). Dodatkowo:
+Tak zrobione tłumaczenie będzie dostępne pod */\__JĘZYK\__/*. Odpowiednie prefixy definiujemy w `config.rb` (w naszym przykładzie linia 7). Dodatkowo:
 
 * `:mount_at_root => :en` - domyślny język. Gdy ustawiemy to na `false` każdy język będzie prefixowany.
 * `:lang_map => { :en => :en, :pl => :pl }` - Ręcznie zdefiniowane języki (domyślnie system szuka plików w `/locales/`)
 
 ### ...i dwa blogi...
 
-By stworzyć dodatkowy blog potrzebujemy najnowsze wersje middlemana i wtyczki middleman-blog (o tym pomyśleliśmy przy zmianie w `Gemfile`). Potrzebujemy aktywować wtyczkę dwa razy pamiętająć o róznych przefixach (`blog.prefix`) i nazwach (`blog.name`).
+By stworzyć dodatkowy blog potrzebujemy najnowsze wersje middlemana i wtyczki middleman-blog (o tym pomyśleliśmy przy zmianie w `Gemfile`). Potrzebujemy aktywować wtyczkę dwa razy pamiętając o rożnych przefixach (`blog.prefix`) i nazwach (`blog.name`).
 
 ~~~ ruby
 activate :blog do |blog|
@@ -394,7 +394,7 @@ activate :blog do |blog|
 end
 ~~~
 
-Dodatkowo przy dodawaniu notek (*.markdown), szablonie kalendarza (`calendar_template`), tagów (`template`) i strony głownej bloga musimy zadbać o sprecyzowanie o który blog nam chodzi:
+Dodatkowo przy dodawaniu notek (*.markdown), szablonie kalendarza (`calendar_template`), tagów (`template`) i strony głównej bloga musimy zadbać o sprecyzowanie o który blog nam chodzi:
 
 ~~~ markdown
 ---
@@ -405,10 +405,10 @@ blog: pl
 ...czyli o podanie nazwy, `pl` w poniższym przykładzie to nie język tylko nazwa bloga.
 
 #### Sztuczka
-`#{I18n.locale}` w szablonie wyświetli nam skrót aktualnie załadowanego języka. Przyda się to np do wpisów w metatagach, a w naszym przykladzie do ładowania innych *partiali* dla każdego języka.
+`#{I18n.locale}` w szablonie wyświetli nam skrót aktualnie załadowanego języka. Przyda się to np do wpisów w metatagach, a w naszym przykładzie do ładowania innych *partiali* dla każdego języka.
 
 ### ...jednocześnie.
-W naszym przykładzie chcemy jednak by i blog i odpowiednia wersja językowa miały ten sam przefix, więc nie ma co liczyć na automatyczne przetłumaczenie. Ustaliliśmy prefix polskiego bloga na `/pl` angielski nie ma prefixu, więc ścieżka `/pl/2013.html` załaduje **angielską** wersję polskiego bloga a `/pl/pl` zwróci 404, więc musimy wymusić wersję językową dla wszystkich elementów polskiego bloga "ręcznie", a robimy to tak:
+W naszym przykładzie chcemy jednak by i blog i odpowiednia wersja językowa miały ten sam prefiks, więc nie ma co liczyć na automatyczne przetłumaczenie. Ustaliliśmy prefiks polskiego bloga na `/pl` angielski nie ma prefiksu, więc ścieżka `/pl/2013.html` załaduje **angielską** wersję polskiego bloga a `/pl/pl` zwróci 404, więc musimy wymusić wersję językową dla wszystkich elementów polskiego bloga "ręcznie", a robimy to tak:
 
 Tworzymy dodatkową daną w nagłówkach szablonu i notek...
 
@@ -448,18 +448,18 @@ ignore "/pl/calendar.html"
 
 Błędy builda są w sumie nieszkodliwe, ale lepiej ich nie mieć, bo miedzy nimi może umknąć prawdziwy błąd.
 
-Jest to trochę zagmatwane, nie mam też pewności czy czegoś nie pominąłem, więc odsyłam do [żródeł](https://github.com/malik-pro/) tego bloga.
+Jest to trochę zagmatwane, nie mam też pewności czy czegoś nie pominąłem, więc odsyłam do [źródeł](https://github.com/malik-pro/) tego bloga.
 
 ## Dodatki
 
 ### Komentarze
-Jedno słowo: [Disqus](http://disqus.com/). Rejestrujemy się w serwisie, pobieramy odpowieni javascript do wstawienia na stronę i już możemy gromadzić naszą społeczność.
+Jedno słowo: [Disqus](http://disqus.com/). Rejestrujemy się w serwisie, pobieramy odpowiedni JavaScript do wstawienia na stronę i już możemy gromadzić naszą społeczność.
 
 ### Wyszukiwarka
-Tu też za bardzo nie mamy wyjścia. Zostaje [Google Custom Search](https://www.google.com/cse) lub [Swiftype](https://swiftype.com). Ewentualnie możemy się pokusić o przeszukiwanie Javascriptem JSONa stworzonego z bazy wspisów albo o jakieś [rozwiązanie](https://github.com/reyesr/fullproof) na [Local Storage](http://www.w3schools.com/html/html5_webstorage.asp) ale to już wychodzi po za temat tej notki.
+Tu też za bardzo nie mamy wyjścia. Zostaje [Google Custom Search](https://www.google.com/cse) lub [Swiftype](https://swiftype.com). Ewentualnie możemy się pokusić o przeszukiwanie Javascriptem JSONa stworzonego z bazy wpisów albo o jakieś [rozwiązanie](https://github.com/reyesr/fullproof) na [Local Storage](http://www.w3schools.com/html/html5_webstorage.asp) ale to już wychodzi po za temat tej notki.
 
 ## Podsumowanie
-Tak oto niewielkim sumptem zbudowaliśmy bloga. Mi całość zajęła 10h, ale to tylko dlatego, że nie wszystko było udokumentowane. Podobnym sposobem możemy zbudować też inne strony: wizytówke firmową, katalog pełnometrażówek z Youtube, preclowe zaplecze SEO, statystyki naszego serwera albo aplikację mobilną na [PhoneGapie](https://github.com/pixelsonly/middleman-phonegap). Bez martwienia się o hosting, bezpieczeńswto naszej aplikacji, wydajność i bazy danych. Ogólnie - całkiem nieźle.
+Tak oto niewielkim sumptem zbudowaliśmy bloga. Mi całość zajęła 10h, ale to tylko dlatego, że nie wszystko było udokumentowane. Podobnym sposobem możemy zbudować też inne strony: wizytówkę firmową, katalog pełnometrażówek z Youtube, preclowe zaplecze SEO, statystyki naszego serwera albo aplikację mobilną na [PhoneGapie](https://github.com/pixelsonly/middleman-phonegap). Bez martwienia się o hosting, bezpieczeństwo naszej aplikacji, wydajność i bazy danych. Ogólnie - całkiem nieźle.
 
 Nie jest to oczywiście wszystko co należy o tym systemie wiedzieć, nie było min. o pisaniu własnych rozszerzeń i o co ciekawszym wykorzystaniu Rack Middleware, ale na początek wystarczy. W razie czego odsyłam do dokumentacji projektu.
 

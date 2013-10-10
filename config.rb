@@ -76,6 +76,14 @@ page '/kw.html' , :layout => :single_layout
 
 page "/sitemap.xml", :layout => "sitemap.xml"
 
+
+configure :development do
+  activate :google_analytics do |ga|
+    ga.tracking_id = false
+  end
+end
+
+
 # Build-specific configuration
 configure :build do
   # activate :minify_html
@@ -84,4 +92,8 @@ configure :build do
   activate :minify_javascript
   activate :cache_buster
   activate :relative_assets
+
+  activate :google_analytics do |ga|
+    ga.tracking_id = 'UA-44619069-1'
+  end
 end

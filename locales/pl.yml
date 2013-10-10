@@ -3,16 +3,16 @@ pl:
     commercial_projects: "Komercyjne projekty"
 
     cm_apprupt_desc: "System reklam mobilnych - backend, własny framework"
-    cm_benc_desc: "Seriwis dla młodych rodziców, własny framework"
+    cm_benc_desc: "Serwis dla młodych rodziców, własny framework"
     cm_clip3_desc: "Zarządzanie obozami dla młodzieży"
     cm_getondek_desc: "Kreator kart sportowych"
     cm_mymonki_desc: "Sklep dla dzieci, szablon dla magento"
-    cm_sciaga_desc: "Seriwis edukacyjny, własny framework"
-    cm_zaliczaj_desc: "Seriwis edukacyjny, własny framework"
+    cm_sciaga_desc: "Serwis edukacyjny, własny framework"
+    cm_zaliczaj_desc: "Serwis edukacyjny, własny framework"
 
     private_projects: Prywatne Projekty
     this_blog: Ten blog
-    pr_this_blog: "Statycznia, generowana strona przez system"
+    pr_this_blog: "Statyczna, generowana strona przez system"
     pr_tvquery: Konfigurowalny program TV
 
     skillset: Umiejętności
