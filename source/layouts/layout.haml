@@ -39,17 +39,16 @@
     %ul.langs.unstyled
       - if I18n.locale == :pl
         %li
-          =tag :img, :src => "/images/pl_g.png"
+          =tag :img, :src => "/images/pl.png"
         %li
-          %a{:href => "/"}>
-            = tag :img, :src => "/images/gb.png"
+          %a{:href => "/index.html"}>
+            = tag :img, :src => "/images/gb_g.png"
       -else
         %li
-          %a{:href => "/pl"}>
-            =tag :img, :src => "/images/pl.png"
+          %a{:href => "/pl/index.html"}>
+            =tag :img, :src => "/images/pl_g.png"
         %li
-          %a{:href => "/"}>
-            = tag :img, :src => "/images/gb_g.png"
+          = tag :img, :src => "/images/gb.png"
 
 
     .container
@@ -77,7 +76,7 @@
                 %i.icon-bitbucket-sign
               %a{href: "https://github.com/malik-pro/", title: "malik-pro@Github"}
                 %i.icon-github-sign
-              %a{href: "https://twitter.com/lukaszmalikpro", title: "lukaszmalikpro@Twitter"}
+              %a{href: "https://twitter.com/tweetmalikpro", title: "tweetmalikpro@Twitter"}
                 %i.icon-twitter-sign
               %a#rss{href: "http://feeds.feedburner.com/malikpro"+(get_root_tag current_page) , title: "RSS"}
                 %i.icon-rss-sign
