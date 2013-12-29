@@ -11,7 +11,7 @@ title: Vim w 5 minut
 {:toc}
 
 ## Co uzyskamy?
-[![VIM](/pl/vim-w-5-minut/vim.png "Vim")](/pl/vim-w-5-minut/vim.png)
+[![VIM](/files/pl/2013-12-25-vim-w-5-minut/vim.png "Vim")](/files/pl/2013-12-25-vim-w-5-minut/vim.png)
 
 ## Jak?
 ~~~ bash
@@ -31,9 +31,8 @@ git submodule add -f git://github.com/tpope/vim-surround.git sources_non_forked/
 
 ## Można też krócej. 
 ~~~ bash
-cat http://malik.pro/pl/vim-w-5-minut/vim.sh | sh
+cat http://malik.pro/files/pl/2013-12-25-vim-w-5-minut/vim.sh | sh
 ~~~
-
 
 ## Ważniejsze wtyczki
 1. [pathogen](https://github.com/tpope/vim-pathogen) - Najważniejsza wtyczka: ułatwione zarządzanie wtyczkami w Vimie. 
