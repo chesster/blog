@@ -25,6 +25,10 @@ module BlogHelpers
     end.join(" ")
   end
 
+  def gist(gist_id)
+	  "<script src=\"https://gist.github.com/chesster/#{gist_id}.js\"></script>"
+  end
+
   def flickr_photo(*photo_ids)
     Flickr::Renderer.new(Flickr::Fetcher.new.by_photo_ids(photo_ids)).render
   end
