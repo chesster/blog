@@ -6,10 +6,10 @@ date: 2013-10-08 14:52 UTC
 
 ##Kwestionariusz ankiety dla nauczycieli
 
-_Dla wszystkich co to teraz kopiują bez opamiętania: poślijcie chociaż [maila](mailto:lukasz@malik.pro) z podziękowaniami czy czymś i pamiętajcie o dwóch rzeczach:
+_Dla wszystkich co to teraz kopiują bez opamiętania: poślijcie chociaż maila (lukasz@malik.pro) z podziękowaniami czy czymś i pamiętajcie o dwóch rzeczach:
 To nie było robione dla szerszej publiki i nie kopiujcie z tego podczas wypełniania już na sali, bo was inspektorzy zjedzą ;)_
 
-_-- [autor](http://malik.pro/pl)_
+_Pozdrawiam, [autor strony](http://malik.pro/pl)_
 
 * list
 {:toc}
