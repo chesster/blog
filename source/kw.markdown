@@ -3,12 +3,16 @@ title: "Kwestionariusz ankiety dla nauczycieli"
 date: 2013-10-08 14:52 UTC
 ---
 
-## Spis treści
+
+##Kwestionariusz ankiety dla nauczycieli
+
+_Dla wszystkich co to teraz kopiują bez opamiętania: poślijcie chociaż [maila](mailto:lukasz@malik.pro) z podziękowaniami czy czymś i pamiętajcie o dwóch rzeczach:
+To nie było robione dla szerszej publiki i nie kopiujcie z tego podczas wypełniania już na sali, bo was inspektorzy zjedzą ;)_
+
+_-- [autor](http://malik.pro/pl)_
 
 * list
 {:toc}
-
-##Kwestionariusz ankiety dla nauczycieli
 
 ###**Pyt. 1  (58)** Które z zalecanych sposobów i warunków realizacji podstawy programowej możliwych do zastosowania w Pana szkole stosuje Pan przynajmniej na połowie zajęć:
 1. obserwowanie i mierzenie;
