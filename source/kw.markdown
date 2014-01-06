@@ -6,7 +6,7 @@ date: 2013-10-08 14:52 UTC
 
 ##Kwestionariusz ankiety dla nauczycieli
 
-_Dla wszystkich co to teraz kopiują bez opamiętania: poślijcie chociaż maila (lukasz@malik.pro) z podziękowaniami czy czymś i pamiętajcie o dwóch rzeczach:
+_Dla wszystkich co to teraz kopiują bez opamiętania: pamiętajcie o dwóch rzeczach:
 To nie było robione dla szerszej publiki i nie kopiujcie z tego podczas wypełniania już na sali, bo was inspektorzy zjedzą ;)_
 
 _Pozdrawiam, [autor strony](http://malik.pro/pl)_
@@ -469,3 +469,14 @@ inne: platforma Wsipnet, elektroniczna wymiana doświadczeń – internetowe klu
 ###**Pyt. 72 (41)** Dlaczego uznaje je Pan za nowatorskie?
 Wcześniej stosowałam je rzadziej. Dzięki nim mogę dokładniej monitorować umiejętności moich uczniów oraz na bieżąco informować rodziców o osiągnięciach i trudnościach dzieci oraz na bieżąco śledzić postępy uczniów i ich zaangażowanie.
 
+<div id='disqus_thread'></div>
+<script>
+  var disqus_shortname = 'malikpropl';
+  var disqus_identifier = '/kw.html';
+  var disqus_title = 'Kwestionariusz nauczycieli';
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
