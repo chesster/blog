@@ -6,7 +6,7 @@ date: 2013-10-08 14:52 UTC
 
 ##Kwestionariusz ankiety dla nauczycieli
 
-_Dla wszystkich co to teraz kopiują bez opamiętania: pamiętajcie o dwóch rzeczach:
+_Dla wszystkich co to teraz kopiują bez opamiętania: zostawcie jakiś komentarz na dole i pamiętajcie o dwóch rzeczach:
 To nie było robione dla szerszej publiki i nie kopiujcie z tego podczas wypełniania już na sali, bo was inspektorzy zjedzą ;)_
 
 _Pozdrawiam, [autor strony](http://malik.pro/pl)_
