@@ -39,7 +39,7 @@ set :uuid, UUID.create_sha1('malik.pro', UUID::NameSpace_URL)
  # Blog settings - GLOBAL
 def blog_set (obj, name, prefix="")
   obj.sources = "articles/"+name+"/:year-:month-:day-:title.html"
-  obj.default_extension = ".markdown"
+  obj.default_extension = ".markdown.erb"
 
   obj.permalink = prefix+":title.html"
   obj.year_link = prefix+":year.html"
