@@ -1,0 +1,31 @@
+---
+blog: pl
+date: 2014-01-10 15:31 UTC
+description: ""
+lang: pl
+tags: conky
+title: Ekg2 w Conky
+---
+
+* list
+{:toc}
+
+## Co uzyskamy?
+Nie wiem czy ktoś jeszcze używa [EKG2](http://ekg2.org/), ale gdy jest gdzieś odpalone w aktualnie widocznym terminalu, lub odpiętym screenie,
+łatwo czasami przeoczyć jakąś ważną wiadomość. Napisałem mały skrypt który wyświetli wszystkie wiadomości z historii ekg2, na które nie odpisaliśmy
+i nie są starsze niż jeden dzień. Wygląda to tak:
+
+## Zrzut ekranu 
+[![VIM](/files/pl/2014-01-10-ekg2-w-conky/conky.png "Ekg in Conky")](/files/pl/2014-01-10-ekg2-w-conky/conky.png)
+
+## Kod skryptu 
+<%= gist '8354067' %>
+
+## Kolory
+Zmieniamy kolory w liniach 15 i 16. Odpowienio dla parzystych i nieparzystych wierszy.
+
+## Instalacja w conky
+Plik umieszczamy w `~/.conky/scripts/` a w `~/.conkyrc` wpisujemy: 
+```
+${execpi 10 ~/.conky/scripts/ekg2.py}
+```
