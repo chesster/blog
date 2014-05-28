@@ -2,6 +2,7 @@
 pl:
     commercial_projects: "Komercyjne projekty"
 
+    cm_netrounds_desc: "Narzędzie do monitorowania i testowania sieci komputerowych."
     cm_apprupt_desc: "System reklam mobilnych - backend, własny framework"
     cm_bazafirm_desc: "Pobieranie baz z katalogów firm online"
     cm_benc_desc: "Serwis dla młodych rodziców, własny framework"

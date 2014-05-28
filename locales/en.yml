@@ -1,7 +1,8 @@
 ---
 en:
     commercial_projects: "Commercial Projects"
-
+    
+    cm_netrounds_desc: "Cloud-delivered tool for troubleshooting and testing IP networks."
     cm_apprupt_desc: "Ads management service - backend, custom framework"
     cm_bazafirm_desc: "Online business catalog database dumper"
     cm_benc_desc: "Polish parenting service, custom framework"

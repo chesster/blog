@@ -10,7 +10,7 @@ $(document).ready ->
         text: (event, api) ->
           ($(this).attr "title") + ' ' + ($(this).attr "_desc")
 
-    # google maps 
+    # google maps
     center_map = ->
       window.setTimeout (->
         map.panTo marker.getPosition()
