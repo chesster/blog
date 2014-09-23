@@ -2,6 +2,7 @@
 en:
     commercial_projects: "Commercial Projects"
     
+    cm_pbp_desc: "Personal training schedule and workout creator."
     cm_netrounds_desc: "Cloud-delivered tool for troubleshooting and testing IP networks."
     cm_apprupt_desc: "Ads management service - backend, custom framework"
     cm_bazafirm_desc: "Online business catalog database dumper"
@@ -15,7 +16,6 @@ en:
     private_projects: Private Projects
     this_blog: This Blog
     pr_this_blog: Pre-cooked personal website powered by
-    pr_tvquery: Customisable TV Guide
 
     skillset: Skillset
     programming_markup_languages: Programming / markup languages
